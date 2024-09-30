@@ -104,11 +104,19 @@
     width: 100vw;
     min-height: 100vh;
     background-color: $surface-100;
+    display: flex;
+    flex-direction: column;
+
+    main {
+        width: 100vw;
+        min-height: 100%;
+        display: flex;
+        flex-direction: row-reverse;
+        flex: 1;
+    }
 }
 
 .navbar {
-    position: fixed;
-    top: 0;
     width: 100vw;
     padding: 24px 48px;
     display: flex;
@@ -171,4 +179,56 @@
             }
         }
     }
+}
+
+.sidebar {
+    width: 480px;
+    min-height: 100%;
+    padding: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    border-left: 2px solid $surface-300;
+
+    .sidebar-item {
+        cursor: pointer;
+        padding: 20px 16px;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: end;
+        align-items: center;
+        gap: 12px;
+        color: $surface-500;
+        border: 1px solid $surface-100;
+
+        &.selected {
+            color: $primary-500;
+            background: linear-gradient(201.1deg, rgba(2, 11, 31, 0.5) 0%, rgba(24, 32, 64, 0.5) 86.08%);
+            border: 1px solid $surface-300;
+        }
+
+        &:hover {
+            background: linear-gradient(201.1deg, rgba(2, 11, 31, 0.5) 0%, rgba(24, 32, 64, 0.5) 86.08%);
+            border: 1px solid $surface-300;
+        }
+
+        img {
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+    .divider {
+        height: 2px;
+        width: 100%;
+        background-color: $surface-300;
+    }
+}
+
+.content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
