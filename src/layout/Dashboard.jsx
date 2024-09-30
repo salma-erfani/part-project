@@ -1,3 +1,5 @@
+import UserList from "../user/UserList"
+import ContentHeader from "./ContentHeader"
 import Navbar from "./Navbar"
 import Sidebar from "./Sidebar"
 
@@ -7,7 +9,10 @@ const Dashboard = () => {
             <Navbar />
             <main>
                 <Sidebar />
-                <div className="content">content</div>
+                <div className="content">
+                    <ContentHeader />
+                    <UserList />
+                </div>
             </main>
         </div>
     )
