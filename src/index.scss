@@ -1,0 +1,85 @@
+@import "_variables.scss";
+
+@font-face {
+    font-family: 'iran yekan';
+    src: url('assets/fonts/IRANYekanMobileThin.woff2') format('woff2');
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: 'iran yekan';
+    src: url('assets/fonts/IRANYekanMobileLight.woff2') format('woff2');
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'iran yekan';
+    src: url('assets/fonts/IRANYekanMobileRegular.woff2') format('woff2');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'iran yekan';
+    src: url('assets/fonts/IRANYekanMobileMedium.woff2') format('woff2');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'iran yekan';
+    src: url('assets/fonts/IRANYekanMobileBold.woff2') format('woff2');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'iran yekan';
+    src: url('assets/fonts/IRANYekanMobileExtraBold.woff2') format('woff2');
+    font-weight: 800;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: $surface-900;
+    font-family: 'iran yekan';
+}
+
+@mixin reset-shared {
+    background-color: inherit;
+    color: inherit;
+    font: inherit;
+    border: none;
+}
+
+button {
+    @include reset-shared;
+    cursor: pointer;
+}
+
+.input-container {
+    position: relative;
+
+    button {
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform: translateY(50%) translateX(50%);
+        display: flex;
+    }
+
+    img {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+input {
+    @include reset-shared;
+
+    &:focus {
+        outline: none;
+    }
+}
