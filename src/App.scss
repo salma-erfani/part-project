@@ -1,5 +1,7 @@
 @import "_variables.scss";
 
+// sing-in
+
 .sign-in-container {
     background-color: $surface-100;
     width: 100vw;
@@ -61,9 +63,13 @@
                 line-height: 24px;
             }
 
-            .icon {
-                color: $surface-500;
-            }
+        }
+
+        .icon {
+            color: $surface-500;
+            left: 0;
+            top: 0;
+            transform: translateY(50%) translateX(50%);
         }
 
         .text-button {
@@ -87,6 +93,81 @@
                 &:hover {
                     background-color: $primary-200;
                 }
+            }
+        }
+    }
+}
+
+// layout
+
+.dashboard {
+    width: 100vw;
+    min-height: 100vh;
+    background-color: $surface-100;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    padding: 24px 48px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid $surface-300;
+
+    .controls {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 24px;
+
+        .input-container {
+            input {
+                width: 512px;
+                padding: 16px;
+                border-radius: 20px;
+                border: 1px solid $surface-300;
+                background: linear-gradient(200.68deg, #020B1F 0%, #0C132C 82.07%);
+                padding-right: 16px + 8px + 24px;
+            }
+
+            .icon {
+                right: 0;
+                top: 0;
+                transform: translateY(50%) translateX(-50%);
+            }
+        }
+    }
+
+    .switch-container {
+        display: flex;
+        gap: 4px;
+        border-radius: 20px;
+        border: 1px solid $surface-300;
+        padding: 6px;
+        background: linear-gradient(204.51deg, #020B1F 0%, #0C132C 84.34%);
+
+        .switch-item {
+            padding: 10px;
+            border-radius: 16px;
+            display: flex;
+
+            &.selected {
+                background-color: $primary-500;
+            }
+
+            input {
+                display: none;
+            }
+
+
+            img {
+                width: 24px;
+                height: 24px;
+                cursor: pointer;
             }
         }
     }
