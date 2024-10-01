@@ -1,16 +1,21 @@
 import "./styles/App.scss"
 import SignIn from "./components/sign-in/SignIn"
-import { useSelector } from "react-redux"
-import { selectUsername } from "./store/slices/user"
+import { useDispatch, useSelector } from "react-redux"
+import { login, selectUsername } from "./store/slices/user"
 import { useEffect } from "react"
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom"
 import Dashboard from "./components/layout/Dashboard"
-import UserList from "./components/user/UserList"
-import EditUser from "./components/user/EditUser"
 import NotFoundPage from "./components/layout/NotFoundPage"
+import Users from "./components/user/Users"
 
 const App = () => {
     const username = useSelector(selectUsername)
+    const dispatch = useDispatch()
+
+    const storedUsername = localStorage.getItem('username')
+    if (storedUsername && !username) {
+        dispatch(login(storedUsername))
+    }
 
     return (
         <BrowserRouter>
@@ -26,8 +31,8 @@ const App = () => {
                         element={
                             <Routes>
                                 <Route element={<Dashboard />}>
-                                    <Route index element={<UserList />} />
-                                    <Route path="edit-user" element={<EditUser />} />
+                                    <Route index element={<Navigate to='/dashboard/users' />} />
+                                    <Route path="users/*" element={<Users />} />
                                 </Route>
                             </Routes>
                         }

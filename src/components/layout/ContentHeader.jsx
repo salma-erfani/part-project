@@ -1,12 +1,10 @@
 import Button from "../util/Button"
+import BreadCrumbs from "./BreadCrumbs"
 
 const ContentHeader = ({ includeAddButton, onClickAdd }) => {
     return (
         <header className="content-header">
-            <div className="breadcrumbs">
-                <img src="assets/images/Arrow-Left-1.svg" alt="<" />
-                <p>لیست کاربران</p>
-            </div>
+            <BreadCrumbs />
             {includeAddButton &&
                 <Button onClick={onClickAdd}>کاربر جدید</Button>
             }

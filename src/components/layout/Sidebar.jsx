@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from "react-redux"
 import { logout, selectUsername } from "../../store/slices/user"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 const Sidebar = () => {
-    let selected = 'home'
+    const [selected, setSelected] = useState('stats')
     const dispatch = useDispatch()
     const navigate = useNavigate()
 

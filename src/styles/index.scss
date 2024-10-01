@@ -81,6 +81,11 @@ input {
     }
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 .modal-container {
     .backdrop {
         position: fixed;

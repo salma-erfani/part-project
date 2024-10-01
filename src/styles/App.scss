@@ -293,10 +293,14 @@
     flex-direction: row-reverse;
 
     .breadcrumbs {
-        display: flex;
-        gap: 4px;
-        flex-direction: row-reverse;
-        align-items: center;
+
+        &,
+        div {
+            display: flex;
+            gap: 4px;
+            flex-direction: row-reverse;
+            align-items: center;
+        }
 
         img {
             width: 24px;
