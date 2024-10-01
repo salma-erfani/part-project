@@ -1,4 +1,4 @@
-const Input = ({ id, type, placeholder, value, onChange, iconPath, isEnglish }) => {
+const Input = ({ id, type, placeholder, value, onChange, iconPath, isEnglish, onClick }) => {
     return (
         <div className="input-container">
             <input
@@ -11,7 +11,7 @@ const Input = ({ id, type, placeholder, value, onChange, iconPath, isEnglish }) 
                 dir={!isEnglish && 'rtl'}
             />
             {iconPath &&
-                <button className="icon">
+                <button className="icon" onClick={onClick}>
                     <img src={iconPath} alt="input icon" />
                 </button>
             }
