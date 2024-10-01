@@ -1,3 +1,4 @@
+import EditUser from "../user/EditUser"
 import UserList from "../user/UserList"
 import ContentHeader from "./ContentHeader"
 import Navbar from "./Navbar"
@@ -11,7 +12,8 @@ const Dashboard = () => {
                 <Sidebar />
                 <div className="content">
                     <ContentHeader />
-                    <UserList />
+                    {/* <UserList /> */}
+                    <EditUser />
                 </div>
             </main>
         </div>
