@@ -283,6 +283,15 @@
     tr:nth-child(even) {
         background-color: $surface-200;
     }
+
+    tbody {
+        tr {
+            cursor: pointer;
+            &:hover {
+                background-color: $surface-400;
+            }
+        }
+    }
 }
 
 // content header

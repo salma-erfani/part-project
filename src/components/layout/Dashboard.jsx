@@ -1,5 +1,5 @@
 import { Outlet, useLocation, useParams } from "react-router-dom"
-import EditUser from "../user/EditUser"
+import EditUser from "../user/EditUserForm"
 import UserList from "../user/UserList"
 import ContentHeader from "./ContentHeader"
 import Navbar from "./Navbar"
