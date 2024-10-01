@@ -1,12 +1,15 @@
 import { useState } from "react"
 import Button from "../util/Button"
 import Input from "../util/Input"
+import { useDispatch } from "react-redux"
+import { login } from "../../store/slices/user"
 
 const SignInForm = () => {
     const [showPassword, setShowPassword] = useState(false)
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-    
+    const dispatch = useDispatch()
+
     let formValid = username.trim().length > 0 && password.trim().length > 0
 
     let iconPath = showPassword ? "assets/images/Eye-Slash.svg" : "assets/images/Eye.svg"
@@ -16,8 +19,11 @@ const SignInForm = () => {
         setShowPassword(prev => !prev)
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        
         if (formValid) {
+            dispatch(login(username))
             // navigate to dashboard
         }
     }
