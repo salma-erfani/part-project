@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import useApi from "../../hooks/useApi"
 import DataTable from "../util/DataTable"
+import Pagination from "../util/Pagination"
 
 const labels = {
     name: 'نام کاربر',
@@ -11,39 +12,11 @@ const labels = {
     company: 'شرکت'
 }
 
-const data = [
-    {
-        id: 1,
-        name: 'نام کاربر',
-        age: 'سن',
-        phone: 'شماره تلفن',
-        email: 'ایمیل',
-        address: 'آدرس',
-        company: 'شرکت'
-    },
-    {
-        id: 2,
-        name: 'نام کاربر',
-        age: 'سن',
-        phone: 'شماره تلفن',
-        email: 'ایمیل',
-        address: 'آدرس',
-        company: 'شرکت'
-    },
-    {
-        id: 3,
-        name: 'نام کاربر',
-        age: 'سن',
-        phone: 'شماره تلفن',
-        email: 'ایمیل',
-        address: 'آدرس',
-        company: 'شرکت'
-    }
-]
-
 const UserList = () => {
     const { data: requestData, loading, error, sendRequest } = useApi()
     const [data, setData] = useState([])
+    const [currentPage, setCurrentPage] = useState(1)
+    const pageSize = 10
 
     useEffect(() => {
         sendRequest('https://63c2988fe3abfa59bdaf89f6.mockapi.io/users', { method: 'GET' })
@@ -66,8 +39,25 @@ const UserList = () => {
         }
     }, [requestData, error])
 
+    const indexOfLastItem = currentPage * pageSize
+    const indexOfFirstItem = indexOfLastItem - pageSize
+    const currentData = data.slice(indexOfFirstItem, indexOfLastItem)
+
+    const totalPages = Math.ceil(data.length / pageSize)
+
+    const handlePageChange = (page) => {
+        setCurrentPage(page)
+    }
+
     return (
-        <DataTable labels={labels} data={data} />
+        <>
+            <DataTable labels={labels} data={currentData} />
+            <Pagination
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={handlePageChange}
+            />
+        </>
     )
 }
 
