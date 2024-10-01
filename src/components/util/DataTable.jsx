@@ -1,6 +1,4 @@
 const DataTable = ({ labels, data }) => {
-    const { id, dataMinusID } = data
-
     return (
         <div className = "datatable">
             <table dir="rtl">
