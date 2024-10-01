@@ -1,4 +1,4 @@
-const Input = ({ id, type, placeholder, value, onChange, iconPath, isEnglish, onClick }) => {
+const Input = ({ id, type, placeholder, value, onChange, onBlur, iconPath, isEnglish, onClick }) => {
     return (
         <div className="input-container">
             <input
@@ -8,6 +8,7 @@ const Input = ({ id, type, placeholder, value, onChange, iconPath, isEnglish, on
                 placeholder={placeholder}
                 value={value}
                 onChange={onChange}
+                onBlur={onBlur}
                 dir={!isEnglish && 'rtl'}
             />
             {iconPath &&

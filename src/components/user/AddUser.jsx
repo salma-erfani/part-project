@@ -1,10 +1,10 @@
 import AddUserForm from "./AddUserForm"
 
-const AddUser = () => {
+const AddUser = ({ onCancel }) => {
     return (
         <div className="modal-container">
-            <div className="backdrop" />
-            <div className="modal"><AddUserForm /></div>
+            <div className="backdrop" onClick={onCancel} />
+            <div className="modal"><AddUserForm onCancel={onCancel} /></div>
         </div>
     )
 }

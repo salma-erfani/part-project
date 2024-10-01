@@ -1,6 +1,6 @@
 import Button from "../util/Button"
 
-const ContentHeader = ({ includeAddButton }) => {
+const ContentHeader = ({ includeAddButton, onClickAdd }) => {
     return (
         <header className="content-header">
             <div className="breadcrumbs">
@@ -8,7 +8,7 @@ const ContentHeader = ({ includeAddButton }) => {
                 <p>لیست کاربران</p>
             </div>
             {includeAddButton &&
-                <Button>کاربر جدید</Button>
+                <Button onClick={onClickAdd}>کاربر جدید</Button>
             }
         </header>
     )
