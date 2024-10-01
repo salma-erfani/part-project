@@ -71,7 +71,6 @@
         }
 
         .icon {
-            color: var(--surface-500);
             left: 0;
             top: 0;
             transform: translateY(50%) translateX(50%);
@@ -150,7 +149,7 @@
             .icon {
                 right: 0;
                 top: 0;
-                transform: translateY(50%) translateX(-50%);
+                transform: translateY(60%) translateX(-50%);
             }
         }
     }
@@ -177,7 +176,7 @@
             }
 
 
-            img {
+            button {
                 width: 24px;
                 height: 24px;
                 cursor: pointer;
@@ -221,6 +220,10 @@
         img {
             width: 24px;
             height: 24px;
+        }
+
+        &.logout {
+            color: var(--ui-red-500);
         }
     }
 
@@ -386,6 +389,15 @@
         font-size: 24px;
         border-bottom: 2px solid var(--surface-300);
         padding-bottom: 16px;
+
+        button {
+            display: flex;
+            align-items: center;
+
+            &:hover {
+                color: var(--ui-red-500);
+            }
+        }
     }
 
     form {

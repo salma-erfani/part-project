@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom"
+import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded';
 
 const BreadCrumbs = () => {
     const { pathname } = useLocation()
@@ -17,7 +18,7 @@ const BreadCrumbs = () => {
         <div className="breadcrumbs">
             {items.map((item, idx) =>
                 <div key={idx}>
-                    <img src="assets/images/Arrow-Left-1.svg" alt="<" />
+                    <ArrowBackIosNewRoundedIcon />
                     <Link to={item.link}><p>{item.label}</p></Link>
                 </div>
             )}

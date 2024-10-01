@@ -1,4 +1,8 @@
 import { useState } from "react"
+import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined'
+import LightModeRoundedIcon from '@mui/icons-material/LightModeRounded'
+import ModeNightOutlinedIcon from '@mui/icons-material/ModeNightOutlined'
+import ModeNightRoundedIcon from '@mui/icons-material/ModeNightRounded'
 
 const SwitchInput = () => {
     const [theme, setTheme] = useState('dark')
@@ -28,12 +32,16 @@ const SwitchInput = () => {
             <div className={"switch-item " + (theme === 'light' && 'selected')} onClick={toggleTheme}>
                 <input type="radio" id="light" name="theme" value="light" />
                 <label htmlFor="light" hidden>light</label>
-                <img src={theme === 'light' ? "assets/images/sun-white.svg" : "assets/images/sun-gray.svg"} alt="sun" />
+                <button>
+                    {theme === 'light' ? <LightModeRoundedIcon /> : <LightModeOutlinedIcon />}
+                </button>
             </div>
             <div className={"switch-item " + (theme === 'dark' && 'selected')} onClick={toggleTheme}>
                 <input type="radio" id="dark" name="theme" value="dark" />
                 <label htmlFor="dark" hidden>dark</label>
-                <img src={theme === 'dark' ? "assets/images/moon-white.svg" : "assets/images/moon-gray.svg"} alt="moon" />
+                <button>
+                    {theme === 'light' ? <ModeNightRoundedIcon /> : <ModeNightOutlinedIcon />}
+                </button>
             </div>
         </div>
     )

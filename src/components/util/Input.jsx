@@ -1,4 +1,4 @@
-const Input = ({ id, type, placeholder, value, onChange, onBlur, iconPath, isEnglish, onClick }) => {
+const Input = ({ id, type, placeholder, value, onChange, onBlur, icon, isEnglish, onClick }) => {
     return (
         <div className="input-container">
             <input
@@ -11,9 +11,9 @@ const Input = ({ id, type, placeholder, value, onChange, onBlur, iconPath, isEng
                 onBlur={onBlur}
                 dir={!isEnglish && 'rtl'}
             />
-            {iconPath &&
+            {icon &&
                 <button className="icon" onClick={onClick}>
-                    <img src={iconPath} alt="input icon" />
+                    {icon}
                 </button>
             }
         </div>

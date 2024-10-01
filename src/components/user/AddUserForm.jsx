@@ -1,6 +1,7 @@
 import { useState } from "react"
 import Button from "../util/Button"
 import Input from "../util/Input"
+import CloseRoundedIcon from '@mui/icons-material/CloseRounded'
 
 const AddUserForm = ({ onCancel }) => {
     const [name, setName] = useState('')
@@ -55,7 +56,9 @@ const AddUserForm = ({ onCancel }) => {
     return (
         <div className="add-user">
             <header>
-                <button onClick={onCancel}><img src="assets/images/Close.svg" alt="close icon" /></button>
+                <button onClick={onCancel}>
+                    <CloseRoundedIcon />
+                </button>
                 <p>کاربر جدید</p>
             </header>
             <form dir="rtl">
