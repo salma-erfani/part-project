@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom"
 import EditUser from "../user/EditUser"
 import UserList from "../user/UserList"
 import ContentHeader from "./ContentHeader"
@@ -12,8 +13,7 @@ const Dashboard = () => {
                 <Sidebar />
                 <div className="content">
                     <ContentHeader />
-                    {/* <UserList /> */}
-                    <EditUser />
+                    <Outlet />
                 </div>
             </main>
         </div>
