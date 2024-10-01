@@ -36,6 +36,44 @@
     font-weight: 800;
 }
 
+:root {
+    // surface
+    --surface-100: #020B1F;
+    --surface-200: #0C132C;
+    --surface-300: #182040;
+    --surface-400: #2F3756;
+    --surface-500: #7E848E;
+    --surface-900: #FBFDFE;
+    // primary
+    --primary-200: #022467;
+    --primary-300: #033699;
+    --primary-500: #0559FD;
+    --primary-600: #1E69FD;
+    // ui
+    --ui-red-500: #FF3231;
+    --ui-red-600: #FF4645;
+    --ui-gray-1000: #fff;
+}
+
+.light-theme {
+    // surface
+    --surface-100: #FBFDFE;
+    --surface-200: #F3F8FC;
+    --surface-300: #DCE9FC;
+    --surface-400: #C4D4EC;
+    --surface-500: #7E848E;
+    --surface-900: #020B1F;
+    // primary
+    --primary-200: #ABC8FD;
+    --primary-300: #74A3FD;
+    --primary-500: #0559FD;
+    --primary-600: #0551E7;
+    // ui
+    --ui-red-500: #FF3231;
+    --ui-red-600: #E62E2F;
+    --ui-gray-1000: #000;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -43,8 +81,8 @@
 }
 
 body {
-    color: $surface-900;
-    font-family: 'iran yekan';
+    color: var(--surface-900);
+    font-family: 'iran yekan', Arial, Helvetica, sans-serif;
 }
 
 @mixin reset-shared {
