@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import useApi from "../../hooks/useApi"
 import EditUserForm from "./EditUserForm"
 import { useParams } from "react-router-dom"
+import LoadingSpinner from "../util/LoadingSpinner"
 
 const EditUser = () => {
     const { id } = useParams()
@@ -31,6 +32,16 @@ const EditUser = () => {
             console.log(error)
         }
     }, [data, error])
+
+    if (loading) {
+        return <LoadingSpinner />
+    }
+
+    if (error) {
+        return <div className="center-container">
+            <p>There was an error!</p>
+        </div>
+    }
 
     return (
         <div className="center-container">

@@ -3,11 +3,12 @@ import Button from "../util/Button"
 import Input from "../util/Input"
 import useApi from "../../hooks/useApi"
 import { useNavigate, useParams } from "react-router-dom"
+import LoadingSpinner from "../util/LoadingSpinner"
 
 const EditUserForm = ({ user }) => {
     const { data: deleteData, loading: deleteLoading, error: deleteError, sendRequest: sendDelete } = useApi()
     const navigate = useNavigate()
-    const {id} = useParams()
+    const { id } = useParams()
 
     const [name, setName] = useState(user.name || '')
     const [age, setAge] = useState(user.age || '')
@@ -192,7 +193,9 @@ const EditUserForm = ({ user }) => {
                 </div>
                 <div className="controls">
                     <Button className="confirm" onClick={onSubmit}>ویرایش</Button>
-                    <Button className="delete" onClick={onDelete}>حذف</Button>
+                    <Button className="delete" onClick={onDelete}>
+                        {deleteLoading ? <LoadingSpinner size={25} /> : "حذف"}
+                    </Button>
                 </div>
             </form>
         </div>

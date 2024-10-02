@@ -4,6 +4,7 @@ import DataTable from "../util/DataTable"
 import Pagination from "../util/Pagination"
 import { useDispatch, useSelector } from "react-redux"
 import { selectAllData, selectQuery, selectShowData, setAllData, setShowData } from "../../store/slices/data"
+import LoadingSpinner from "../util/LoadingSpinner"
 
 const labels = {
     name: 'نام کاربر',
@@ -69,6 +70,16 @@ const UserList = () => {
 
     const handlePageChange = (page) => {
         setCurrentPage(page)
+    }
+
+    if (loading) {
+        return <LoadingSpinner />
+    }
+
+    if (error) {
+        return <div className="center-container">
+            <p>There was an error!</p>
+        </div>
     }
 
     return (
