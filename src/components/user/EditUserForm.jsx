@@ -4,11 +4,14 @@ import Input from "../util/Input"
 import useApi from "../../hooks/useApi"
 import { useNavigate, useParams } from "react-router-dom"
 import LoadingSpinner from "../util/LoadingSpinner"
+import { useDispatch } from "react-redux"
+import { showToast } from "../../store/slices/toast"
 
 const EditUserForm = ({ user }) => {
     const { data: deleteData, loading: deleteLoading, error: deleteError, sendRequest: sendDelete } = useApi()
     const navigate = useNavigate()
     const { id } = useParams()
+    const dispatch = useDispatch()
 
     const [name, setName] = useState(user.name || '')
     const [age, setAge] = useState(user.age || '')
@@ -65,11 +68,11 @@ const EditUserForm = ({ user }) => {
 
     useEffect(() => {
         if (deleteData) {
-            console.log('deleted!')
+            dispatch(showToast({ message: 'User was successfully deleted.', type: 'success' }))
             navigate('/dashboard/users')
         }
         if (deleteError) {
-            console.log('error is', deleteError)
+            dispatch(showToast({ message: 'There was an error deleting the user.', type: 'error' }))
         }
     }, [deleteData, deleteError])
 
