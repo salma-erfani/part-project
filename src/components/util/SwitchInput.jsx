@@ -40,7 +40,7 @@ const SwitchInput = () => {
                 <input type="radio" id="dark" name="theme" value="dark" />
                 <label htmlFor="dark" hidden>dark</label>
                 <button>
-                    {theme === 'light' ? <ModeNightRoundedIcon /> : <ModeNightOutlinedIcon />}
+                    {theme === 'dark' ? <ModeNightRoundedIcon /> : <ModeNightOutlinedIcon />}
                 </button>
             </div>
         </div>
