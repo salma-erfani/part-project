@@ -360,6 +360,7 @@
     flex-direction: row-reverse;
 
     .breadcrumbs {
+        color: var(--surface-500);
 
         &,
         div {
@@ -369,7 +370,17 @@
             align-items: center;
         }
 
-        img {
+        div {
+            p:hover {
+                color: var(--primary-500);
+            }
+
+            &:last-of-type {
+                color: var(--ui-gray-1000);
+            }
+        }
+
+        svg {
             width: 24px;
             height: 24px;
         }
