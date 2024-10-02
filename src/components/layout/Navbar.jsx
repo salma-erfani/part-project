@@ -1,13 +1,21 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Input from "../util/Input"
 import SwitchInput from "../util/SwitchInput"
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded'
-import { useDispatch } from "react-redux"
-import { setQuery } from "../../store/slices/data"
+import { useDispatch, useSelector } from "react-redux"
+import { selectQuery, setQuery } from "../../store/slices/data"
 
 const Navbar = ({ includeSearchBar }) => {
     const [searchInput, setSearchInput] = useState('')
     const dispatch = useDispatch()
+    const query = useSelector(selectQuery)
+
+    useEffect(() => {
+        if (query !== searchInput) {
+            setSearchInput(query)
+        }
+    }, [query])
+
 
     const onClickSearch = (e) => {
         e.preventDefault()

@@ -19,17 +19,28 @@ const dataSlice = createSlice({
         },
         setQuery: (state, action) => {
             state.query = action.payload
+            sessionStorage.setItem('query', action.payload)
         },
         setSortedOn: (state, action) => {
-            // payload has column name
-            state.sortedOn = { column: action.payload, type: 'asc' }
+            if (typeof action.payload === 'object') {
+                state.sortedOn = action.payload
+            }
+            else {
+                // payload has column name
+                state.sortedOn = { column: action.payload, type: 'asc' }
+                sessionStorage.setItem('sortColumn', action.payload)
+                sessionStorage.setItem('sortType', 'asc')
+            }
         },
         toggleSortedOn: (state) => {
             if (state.sortedOn.type === 'asc') {
                 state.sortedOn.type = 'desc'
+                sessionStorage.setItem('sortType', 'desc')
             }
             else {
                 state.sortedOn = null
+                sessionStorage.removeItem('sortColumn')
+                sessionStorage.removeItem('sortType')
             }
         }
     }

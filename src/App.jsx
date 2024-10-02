@@ -9,16 +9,34 @@ import NotFoundPage from "./components/layout/NotFoundPage"
 import Users from "./components/user/Users"
 import Toast from "./components/util/Toast"
 import { hideToast } from "./store/slices/toast"
+import { selectQuery, selectSortedOn, setQuery, setSortedOn } from "./store/slices/data"
 
 const App = () => {
     const username = useSelector(selectUsername)
     const dispatch = useDispatch()
     const { showToast, message, type } = useSelector(state => state.toast)
+    const query = useSelector(selectQuery)
+    const sortedOn = useSelector(selectSortedOn)
 
     const storedUsername = localStorage.getItem('username')
     if (storedUsername && !username) {
         dispatch(login(storedUsername))
     }
+
+    // check in session storage for query and sortedOn
+    useEffect(() => {
+        const storedQuery = sessionStorage.getItem('query')
+        const storedSortColumn = sessionStorage.getItem('sortColumn')
+        const storedSortType = sessionStorage.getItem('sortType')
+
+        if (storedQuery && storedQuery !== query) {
+            dispatch(setQuery(storedQuery))
+        }
+
+        if (storedSortColumn !== sortedOn?.column || storedSortType !== sortedOn?.type) {
+            dispatch(setSortedOn({ column: storedSortColumn, type: storedSortType }))
+        }
+    }, [])
 
     return (
         <>
