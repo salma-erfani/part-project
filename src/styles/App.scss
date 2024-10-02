@@ -552,3 +552,30 @@
         }
     }
 }
+
+// not found
+.not-found {
+    background-color: var(--surface-100);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    font-size: 24px;
+
+    a {
+        border-radius: 16px;
+        padding: 16px 24px;
+        font-size: 20px;
+        font-weight: 400;
+        background-color: var(--primary-500);
+        color: var(--ui-gray-1000);
+        box-shadow: 0px 0px 24px 0px var(--primary-300);
+
+        &:hover {
+            background-color: var(--primary-600);
+        }
+    }
+}
