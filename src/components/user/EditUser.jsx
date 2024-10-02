@@ -25,7 +25,8 @@ const EditUser = () => {
                 city: data.city,
                 street: data.street,
                 postal: data.zipcode,
-                company: data.company
+                company: data.company,
+                avatar: data.avatar
             })
         }
         if (error) {

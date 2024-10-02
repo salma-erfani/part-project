@@ -6,6 +6,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import LoadingSpinner from "../util/LoadingSpinner"
 import { useDispatch } from "react-redux"
 import { showToast } from "../../store/slices/toast"
+import AvatarUpload from "./AvatarUpload"
 
 const EditUserForm = ({ user }) => {
     const { data: deleteData, loading: deleteLoading, error: deleteError, sendRequest: sendDelete } = useApi()
@@ -22,6 +23,7 @@ const EditUserForm = ({ user }) => {
     const [street, setStreet] = useState(user.street || '')
     const [postal, setPostal] = useState(user.postal || '')
     const [company, setCompany] = useState(user.company || '')
+    const [fileSrc, setFileSrc] = useState(user.avatar || '')
 
     const [nameTouched, setNameTouched] = useState(false)
     const [ageTouched, setAgeTouched] = useState(false)
@@ -82,11 +84,7 @@ const EditUserForm = ({ user }) => {
                 <p>ویرایش کاربر</p>
             </header>
             <form dir="rtl">
-                <div className="avatar-container">
-                    <div className="avatar">
-                        <img src="assets/images/Service-Verification.svg" alt="avatar icon" />
-                    </div>
-                </div>
+                <AvatarUpload fileSrc={fileSrc} setFileSrc={setFileSrc} />
                 <div className={"form-building " + (nameTouched && !nameValid && 'invalid')}>
                     <div className="form-building">
                         <label htmlFor="name">نام کاربر</label>

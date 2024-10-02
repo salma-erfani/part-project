@@ -290,7 +290,7 @@
 
         &.selected {
             background-color: var(--primary-500);
-            color: var(--ui-gray-1000); 
+            color: var(--ui-gray-1000);
 
             &:hover {
                 background-color: var(--primary-600);
@@ -433,6 +433,7 @@
             align-items: center;
 
             .avatar {
+                cursor: pointer;
                 width: 120px;
                 height: 120px;
                 border-radius: 100%;
@@ -440,8 +441,9 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                overflow: hidden;
 
-                img {
+                svg {
                     width: 100px;
                     height: 100px;
                 }

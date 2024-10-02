@@ -2,6 +2,8 @@ import { useState } from "react"
 import Button from "../util/Button"
 import Input from "../util/Input"
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded'
+import PersonIcon from '@mui/icons-material/Person'
+import AvatarUpload from "./AvatarUpload"
 
 const AddUserForm = ({ onCancel }) => {
     const [name, setName] = useState('')
@@ -13,6 +15,7 @@ const AddUserForm = ({ onCancel }) => {
     const [street, setStreet] = useState('')
     const [postal, setPostal] = useState('')
     const [company, setCompany] = useState('')
+    const [fileSrc, setFileSrc] = useState('')
 
     const [nameTouched, setNameTouched] = useState(false)
     const [ageTouched, setAgeTouched] = useState(false)
@@ -62,11 +65,7 @@ const AddUserForm = ({ onCancel }) => {
                 <p>کاربر جدید</p>
             </header>
             <form dir="rtl">
-                <div className="avatar-container">
-                    <div className="avatar">
-                        <img src="assets/images/Service-Verification.svg" alt="avatar icon" />
-                    </div>
-                </div>
+                <AvatarUpload fileSrc={fileSrc} setFileSrc={setFileSrc} />
                 <div className="form-frame">
                     <div className={"form-building " + (nameTouched && !nameValid && 'invalid')}>
                         <label htmlFor="name">نام کاربر</label>
