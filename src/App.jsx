@@ -38,6 +38,18 @@ const App = () => {
         }
     }, [])
 
+    // check in local storage for saved theme
+    useEffect(() => {
+        const theme = localStorage.getItem('theme')
+        const body = document.body
+        if (theme === 'light') {
+            body.classList.add('light-theme')
+        }
+        else {
+            body.classList.remove('light-theme')
+        }
+    }, [])
+
     return (
         <>
             <BrowserRouter>

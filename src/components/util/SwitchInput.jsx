@@ -29,18 +29,18 @@ const SwitchInput = () => {
 
     return (
         <div className="switch-container">
-            <div className={"switch-item " + (theme === 'light' && 'selected')} onClick={toggleTheme}>
-                <input type="radio" id="light" name="theme" value="light" />
-                <label htmlFor="light" hidden>light</label>
-                <button>
-                    {theme === 'light' ? <LightModeRoundedIcon /> : <LightModeOutlinedIcon />}
-                </button>
-            </div>
             <div className={"switch-item " + (theme === 'dark' && 'selected')} onClick={toggleTheme}>
                 <input type="radio" id="dark" name="theme" value="dark" />
                 <label htmlFor="dark" hidden>dark</label>
                 <button>
                     {theme === 'dark' ? <ModeNightRoundedIcon /> : <ModeNightOutlinedIcon />}
+                </button>
+            </div>
+            <div className={"switch-item " + (theme === 'light' && 'selected')} onClick={toggleTheme}>
+                <input type="radio" id="light" name="theme" value="light" />
+                <label htmlFor="light" hidden>light</label>
+                <button>
+                    {theme === 'light' ? <LightModeRoundedIcon /> : <LightModeOutlinedIcon />}
                 </button>
             </div>
         </div>
