@@ -117,6 +117,14 @@ input {
     &:focus {
         outline: none;
     }
+
+    &:-webkit-autofill {
+        background-color: transparent !important;
+        color: inherit !important;
+        box-shadow: 0 0 0px 1000px white inset !important;
+        -webkit-text-fill-color: inherit !important;
+        transition: background-color 5000s ease-in-out 0s;
+    }
 }
 
 a {

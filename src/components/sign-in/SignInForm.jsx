@@ -4,6 +4,8 @@ import Input from "../util/Input"
 import { useDispatch } from "react-redux"
 import { login } from "../../store/slices/user"
 import { useNavigate } from "react-router-dom"
+import VisibilityIcon from '@mui/icons-material/Visibility'
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff'
 
 const SignInForm = () => {
     const [showPassword, setShowPassword] = useState(false)
@@ -14,7 +16,7 @@ const SignInForm = () => {
 
     let formValid = username.trim().length > 0 && password.trim().length > 0
 
-    let iconPath = showPassword ? "assets/images/Eye-Slash.svg" : "assets/images/Eye.svg"
+    let icon = showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />
 
     const togglePasswordVisibility = (e) => {
         e.preventDefault()
@@ -53,7 +55,7 @@ const SignInForm = () => {
                         id="password"
                         type={showPassword ? 'text' : 'password'}
                         placeholder="رمز عبور خود را وارد کنید"
-                        iconPath={iconPath}
+                        icon={icon}
                         onClick={togglePasswordVisibility}
                         value={password}
                         onChange={e => setPassword(e.target.value)}
