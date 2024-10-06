@@ -2,7 +2,7 @@ import React from 'react'
 
 const Pagination = ({ currentPage, totalPages, onPageChange }) => {
     const getPageNumbers = () => {
-        const delta = 2
+        const delta = 3
         const range = []
         const rangeWithDots = []
 

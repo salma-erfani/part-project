@@ -7,12 +7,12 @@ import { selectAllData, selectQuery, selectShowData, setAllData, setShowData } f
 import LoadingSpinner from "../util/LoadingSpinner"
 
 const labels = {
-    name: 'نام کاربر',
-    age: 'سن',
-    phone: 'شماره تلفن',
-    email: 'ایمیل',
-    address: 'آدرس',
-    company: 'شرکت'
+    name: { translation: 'نام کاربر' , sortable: true},
+    age: { translation: 'سن', sortable: false },
+    phone: { translation: 'شماره تلفن', sortable: false },
+    email: { translation: 'ایمیل', sortable: false },
+    address: { translation: 'آدرس', sortable: true },
+    company: { translation: 'شرکت', sortable: true },
 }
 
 const searchRecords = (data, query) => {

@@ -61,9 +61,9 @@ const DataTable = ({ labels, data }) => {
                 <thead>
                     <tr>
                         {Object.keys(labels).map(key =>
-                            <th key={key} onClick={() => handleClickColumn(key)} className={sortedOn?.column === key && 'selected'}>
+                            <th key={key} onClick={labels[key].sortable ? () => handleClickColumn(key) : () => {}} className={sortedOn?.column === key && 'selected'}>
                                 <div>
-                                    <p>{labels[key]}</p>
+                                    <p>{labels[key].translation}</p>
                                     {sortedOn?.column === key && (sortedOn?.type === 'asc' ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />)}
                                 </div>
                             </th>

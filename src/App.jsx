@@ -11,6 +11,31 @@ import Toast from "./components/util/Toast"
 import { hideToast } from "./store/slices/toast"
 import { selectQuery, selectSortedOn, setQuery, setSortedOn } from "./store/slices/data"
 
+const AppRoutes = ({ isLoggedIn }) => {
+    if (isLoggedIn) {
+        return (
+            <Route path="/sign-in" element={<SignIn />} />
+        )
+    }
+    else return (
+        <Route
+            path="/dashboard/*"
+            element={
+                <Routes>
+                    <Route element={<Dashboard />}>
+                        <Route index element={<Navigate to='/dashboard/users' />} />
+                        <Route path="users/*" element={<Users />} />
+                    </Route>
+                </Routes>
+            }
+        />
+    )
+}
+
+const withAuthenticated = (Component) => ({ username }) => {
+    return <Component isLoggedIn={username} />
+}
+
 const App = () => {
     const username = useSelector(selectUsername)
     const dispatch = useDispatch()
@@ -56,22 +81,7 @@ const App = () => {
                 <Routes>
                     <Route path="/" element={username ? <Navigate to='/dashboard' replace /> : <Navigate to='/sign-in' replace />} />
                     <Route path="/not-found" element={<NotFoundPage />} />
-                    {!username &&
-                        <Route path="/sign-in" element={<SignIn />} />
-                    }
-                    {username &&
-                        <Route
-                            path="/dashboard/*"
-                            element={
-                                <Routes>
-                                    <Route element={<Dashboard />}>
-                                        <Route index element={<Navigate to='/dashboard/users' />} />
-                                        <Route path="users/*" element={<Users />} />
-                                    </Route>
-                                </Routes>
-                            }
-                        />
-                    }
+                    {withAuthenticated(AppRoutes)}
                     <Route path="*" element={<Navigate to="/not-found" />} />
                 </Routes>
             </BrowserRouter>
